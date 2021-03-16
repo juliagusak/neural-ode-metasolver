@@ -1,0 +1,14 @@
+*~
+*.log
+.data/
+data/*
+data/
+*.pyc
+events/*
+.ipynb_checkpoints/
+.ipynb_checkpoints/*
+gifs/*
+wandb/
+tests/
+tests/*
+checkpoints/accuracy

@@ -50,7 +50,7 @@ We have trained a neural ODE model several times, using different ``u`` values i
 <img src="examples/mnist/assets/mnist_adv.png" width="40%">
 
 ## Solver smoothing improves robustness
-We compare results of neural ODE adversarial training on CIFAR-10 dataset with and without solver smoothing (using normal distribution with mean = 0 and sigma=0.0125). We choose 8-steps RK2 solver with u=0.5 for this experiment.
+We compare results of neural ODE adversarial training on CIFAR-10 dataset with meta-solver in standalone, switching or smoothing regimes. We choose 8-steps RK2 solvers for this experiment.
 - We perform training using FGSM random technique described in https://arxiv.org/abs/2001.03994 (with eps=8/255, alpha=10/255). 
 - We use cyclic learning rate schedule with one cycle (36 epochs, max_lr=0.1, base_lr=1e-7).
 - We measure robust accuracy of resulting models after FGSM (eps=8/255) and PGD (eps=8/255, lr=2/255, iters=7) attacks.
@@ -58,8 +58,12 @@ We compare results of neural ODE adversarial training on CIFAR-10 dataset with a
 `Conv -> PreResNet block -> ODE block -> PreResNet block -> ODE block ->  GeLU -> Average Pooling -> Fully Connected`
 - We compute mean and standard error across 3 random seeds.
 
+<!---
 ![](examples/cifar10/assets/fgsm_random_train_fgsm_eps_8_255_test.png)
 ![](examples/cifar10/assets/fgsm_random_train_pgd_eps_8_255_lr_2_255_iters_7_test.png)
+-->
+
+![](examples/cifar10/assets/fgsm_random_train.png)
 
 # References
 [1] [Wanner, G., & Hairer, E. (1993). Solving ordinary differential equations I. Springer Berlin Heidelberg](https://www.springer.com/gp/book/9783540566700)
